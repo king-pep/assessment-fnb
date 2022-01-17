@@ -8,30 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@Service
-@Transactional
-public class EmployeeRoleMappingService {
+public interface EmployeeRoleMappingService {
 
-    private final EmployeeRoleMappingRepository employeeRoleMappingRepository;
 
-    @Autowired
-    public EmployeeRoleMappingService(EmployeeRoleMappingRepository employeeRoleMappingRepository) {
-        this.employeeRoleMappingRepository = employeeRoleMappingRepository;
-    }
 
-    public List<EmployeeRoleMapping> findAllEmployeeRoleMappings() {
-        return employeeRoleMappingRepository.findAll();
-    }
+     List<EmployeeRoleMapping> findAllEmployeeRoleMappings();
 
-    public Optional<EmployeeRoleMapping> findEmployeeRoleMappingById(Long id) {
-        return employeeRoleMappingRepository.findById(id);
-    }
+     Optional<EmployeeRoleMapping> findEmployeeRoleMappingById(Long id);
 
-    public EmployeeRoleMapping saveEmployeeRoleMapping(EmployeeRoleMapping employeeRoleMapping) {
-        return employeeRoleMappingRepository.save(employeeRoleMapping);
-    }
+     EmployeeRoleMapping saveEmployeeRoleMapping(EmployeeRoleMapping employeeRoleMapping);
 
-    public void deleteEmployeeRoleMappingById(Long id) {
-        employeeRoleMappingRepository.deleteById(id);
-    }
+     void deleteEmployeeRoleMappingById(Long id);
+
 }

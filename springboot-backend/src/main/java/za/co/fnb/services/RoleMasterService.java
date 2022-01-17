@@ -8,30 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@Service
-@Transactional
-public class RoleMasterService {
 
-    private final RoleMasterRepository roleMasterRepository;
+public interface RoleMasterService {
 
-    @Autowired
-    public RoleMasterService(RoleMasterRepository roleMasterRepository) {
-        this.roleMasterRepository = roleMasterRepository;
-    }
 
-    public List<RoleMaster> findAllRoleMasters() {
-        return roleMasterRepository.findAll();
-    }
 
-    public Optional<RoleMaster> findRoleMasterById(Long id) {
-        return roleMasterRepository.findById(id);
-    }
+    public List<RoleMaster> findAllRoleMasters();
 
-    public RoleMaster saveRoleMaster(RoleMaster roleMaster) {
-        return roleMasterRepository.save(roleMaster);
-    }
+    public Optional<RoleMaster> findRoleMasterById(Long id);
 
-    public void deleteRoleMasterById(Long id) {
-        roleMasterRepository.deleteById(id);
-    }
+    public RoleMaster saveRoleMaster(RoleMaster roleMaster);
+
+    public void deleteRoleMasterById(Long id);
 }
